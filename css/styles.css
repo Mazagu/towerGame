@@ -1,0 +1,69 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#game {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#score {
+	padding: 10px;
+    font-family: arial;
+}
+
+.tile {
+	border: 1px solid black;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.castle {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("img/castle.png");
+}
+
+.tower {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("img/tower.png");
+}
+
+.wizard {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("img/IceWizard/Stand/0.png");
+}
+
+.knight {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("img/Knight/Stand/0.png");
+}
+
+.grass1 { background-image: url("img/Grass1.png"); }
+.grass2 { background-image: url("img/Grass2.png"); }
+.grass3 { background-image: url("img/Grass3.png"); }
+.grass4 { background-image: url("img/Grass4.png"); }
+.grass5 { background-image: url("img/Grass5.png"); }
+.lgrass1 { background-image: url("img/LGrass1.png"); }
+.lgrass2 { background-image: url("img/LGrass2.png"); }
+.lgrass3 { background-image: url("img/LGrass3.png"); }
+.lgrass4 { background-image: url("img/LGrass4.png"); }
+.lgrass5 { background-image: url("img/LGrass5.png"); }
