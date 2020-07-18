@@ -1,4 +1,5 @@
 # Tower Game
+![alt text](https://github.com/Mazagu/towerGame/blob/master/1QNkpWv4DT.png?raw=true)
 ## What is Tower Game?
 Tower Game is a silly vanilla JavaScript game intended as a challenge to practice programming skills.
 ## How to play?
