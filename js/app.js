@@ -1,8 +1,12 @@
 function app()
 {
 	var self = this;
-	self.width = 600;
-	self.height = 600;
+	var scoreHeight = parseInt(getComputedStyle(document.getElementById("score-container")).height);
+	var size = (window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight) - scoreHeight;
+	size = parseInt(size.toString().replace(/.$/, 0));
+	document.getElementById("score-container").style.width = size + "px";
+	self.width = size;
+	self.height = size;
 	self.frameRate = 30;
 	self.loop = null;
 	self.container = document.querySelector("#game");
