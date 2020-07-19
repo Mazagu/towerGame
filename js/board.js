@@ -15,7 +15,7 @@ function board(width, height, app)
 		for(var i = 0; i < self.cols; i++) {
 			self.tiles[i] = [];
 			for(var j = 0; j < self.cols; j++) {
-				self.tiles[i][j] = new tile(self.cols, self.rows, width, height, self);
+				self.tiles[i][j] = new tile(i, j, self.cols, self.rows, width, height, self);
 				app.container.appendChild(self.tiles[i][j].draw());
 			}
 		}
@@ -24,24 +24,8 @@ function board(width, height, app)
 	}
 
 	self.update = function() {
-		for(var i = 0; i < self.cols; i++) {
-			for(var j = 0; j < self.cols; j++) {
-				if(self.tiles[i][j].content && self.tiles[i][j].content.name == "knight") {
-					if(app.timer % self.knight.speed == 0) {
-						self.knight.checkDirection(i,j);
-						self.knight.setNext(i,j);
-						self.tiles[i][j].removeContent();
-					}
-				}
-			}
-		}
-
-		if(self.knight.next && !self.tiles[self.knight.next.x][self.knight.next.y].content) {
-			self.tiles[self.knight.next.x][self.knight.next.y].addContent(self.knight);
-		} else if(self.knight.next && self.tiles[self.knight.next.x][self.knight.next.y].content.name == "tower") {
-			self.tiles[self.knight.next.x][self.knight.next.y].addContent(self.knight);
-			self.addRandomTower();
-			app.score++;
+		if(app.timer % self.knight.speed == 0) {
+			self.knight.update();				
 		}
 	}
 

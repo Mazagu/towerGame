@@ -1,6 +1,7 @@
-function tile(cols, rows, width, height, board)
+function tile(y, x, cols, rows, width, height, board)
 {
 	var self = this;
+	self.position = { x: x, y: y};
 	self.width = width / cols;
 	self.height = height / rows;
 	self.textures = ["grass1", "grass2", "grass3", "grass4", "grass5", "lgrass1", "lgrass2", "lgrass3", "lgrass4", "lgrass5"]
@@ -40,7 +41,7 @@ function tile(cols, rows, width, height, board)
 
 	self.addContent = function(content) {
 		self.content = content;
-		self.container.appendChild(self.content.draw());
+		self.container.appendChild(self.content.draw(self.position.x, self.position.y));
 	}
 
 	self.removeContent = function() {
