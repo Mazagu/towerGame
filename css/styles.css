@@ -65,6 +65,14 @@ html, body {
 	background-image: url("img/IceWizard/Stand/0.png");
 }
 
+.archer {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("img/Archer/Stand/0.png");
+}
+
 .knight {
 	width: 100%;
 	height: 100%;

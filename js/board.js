@@ -10,6 +10,7 @@ function board(width, height, app)
 	self.wizards = 0;
 	self.maxWizards = 2;
 	self.knight = new knight(self);
+	self.archer = new archer(self);
 	self.tower = null;
 
 	self.draw = function() {
@@ -21,10 +22,15 @@ function board(width, height, app)
 			}
 		}
 		self.tiles[parseInt(Math.random() * self.cols)][parseInt(Math.random() * self.rows)].addContent(self.knight);
+		self.addRandomArcher();
 		self.addRandomTower();
 	}
 
 	self.update = function() {
+		if(app.timer % self.archer.speed == 0) {
+			self.archer.update();				
+		}
+
 		if(app.timer % self.knight.speed == 0) {
 			self.knight.update();				
 		}
@@ -35,6 +41,16 @@ function board(width, height, app)
 		var y = parseInt(Math.random() * self.rows);
 		if(!self.tiles[x][y].content) {
 			self.tiles[x][y].addContent(new tower(self));
+		} else {
+			self.addRandomTower();
+		}
+	}
+
+	self.addRandomArcher = function() {
+		var x = parseInt(Math.random() * self.cols);
+		var y = parseInt(Math.random() * self.rows);
+		if(!self.tiles[x][y].content) {
+			self.tiles[x][y].addContent(self.archer);
 		} else {
 			self.addRandomTower();
 		}
