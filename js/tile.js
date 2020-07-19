@@ -27,7 +27,7 @@ function tile(y, x, cols, rows, width, height, board)
 
 	self.addWizard = function() {
 		if(board.wizards < board.maxWizards) {
-			self.addContent(new wizard());
+			self.addContent(new wizard(board));
 			board.wizards ++;
 		}			
 	}
@@ -40,11 +40,15 @@ function tile(y, x, cols, rows, width, height, board)
 	}
 
 	self.addContent = function(content) {
+		self.removeContent();
 		self.content = content;
 		self.container.appendChild(self.content.draw(self.position.x, self.position.y));
 	}
 
 	self.removeContent = function() {
+		if(self.content) {
+			self.content.death();	
+		}
 		self.container.innerHTML = null;
 		self.content = null;
 	}

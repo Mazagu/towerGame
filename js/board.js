@@ -1,6 +1,7 @@
 function board(width, height, app)
 {
 	var self = this;
+	self.parent = app;
 	self.cols = 10;
 	self.rows = 10;
 	self.width = width;
@@ -33,7 +34,7 @@ function board(width, height, app)
 		var x = parseInt(Math.random() * self.cols);
 		var y = parseInt(Math.random() * self.rows);
 		if(!self.tiles[x][y].content) {
-			self.tiles[x][y].addContent(new tower());
+			self.tiles[x][y].addContent(new tower(self));
 		} else {
 			self.addRandomTower();
 		}

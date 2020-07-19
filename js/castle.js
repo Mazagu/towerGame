@@ -1,4 +1,4 @@
-function castle()
+function castle(board)
 {
 	character.call(this, board);
 	var self = this;

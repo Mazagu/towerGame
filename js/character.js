@@ -1,6 +1,7 @@
 function character(board)
 {
 	var self = this;
+	self.board = board;
 	self.name = "character";
 	self.position = { x: null, y: null };
 	self.nextPosition = { x: null, y: null };
@@ -41,8 +42,8 @@ function character(board)
 	self.move = function() {
 		self[self.nextMove]();
 		self.setNextPosition();
-		board.tiles[self.position.y][self.position.x].removeContent();
-		board.tiles[self.nextPosition.y][self.nextPosition.x].addContent(self);
+		self.board.tiles[self.position.y][self.position.x].removeContent();
+		self.board.tiles[self.nextPosition.y][self.nextPosition.x].addContent(self);
 		self.setDirection(0,0);
 	}
 
@@ -82,7 +83,7 @@ function character(board)
 	}
 
 	self.checkRight = function() {
-		return self.position.x < board.cols - 1 && self.checkTarget(1,0);
+		return self.position.x < self.board.cols - 1 && self.checkTarget(1,0);
 	}
 
 	self.down = function() {
@@ -95,7 +96,7 @@ function character(board)
 	}
 
 	self.checkDown = function() {
-		return self.position.y < board.rows - 1 && self.checkTarget(0,1);
+		return self.position.y < self.board.rows - 1 && self.checkTarget(0,1);
 	}
 
 	self.left = function() {
@@ -126,7 +127,7 @@ function character(board)
 	}
 
 	self.checkTarget = function(x,y) {
-		return !board.tiles[self.position.y + y][self.position.x + x].content;
+		return !self.board.tiles[self.position.y + y][self.position.x + x].content;
 	}
 
 	self.checkMoves = function() {
@@ -156,5 +157,9 @@ function character(board)
 			default:
 				return false;
 		}
+	}
+
+	self.death = function() {
+
 	}
 }
